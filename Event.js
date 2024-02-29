@@ -91,3 +91,25 @@ document.getElementById("InputFocus").addEventListener("focus", function () {
     console.log("Focus on input field");
     // this.style.borderColor = "red"; 
 });
+
+
+// For Delete 
+document.getElementById("delete-input").addEventListener("keyup", function (event) {
+    const text = event.target.value;
+    const deleteButton = document.getElementById("delete-button");
+
+    if (text === "delete") {
+        deleteButton.removeAttribute("disabled");
+    } else {
+        deleteButton.setAttribute("disabled", true);
+    }
+});
+
+document.getElementById("delete-button").addEventListener("click", function () {
+    const textDelete = document.getElementById("delete-text");
+    if (textDelete) {
+        // textDelete.style.display="none"; 
+        textDelete.remove(); // Same as display none 
+        document.getElementById("delete-input").value = "";
+    }
+});
